@@ -8,6 +8,7 @@
   <title>PhotoFolio Bootstrap Template - Index</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
+  <link rel="manifest" href="manifest.json">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -45,9 +46,9 @@
 
       <a href="index.html" class="logo d-flex align-items-center  me-auto me-lg-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <i class="bi bi-camera"></i>
-        <h1>PhotoFolio</h1>
+         <img src="assets/img/RFM-logo.jpg" alt="Logo com a letra R e a letra F ao contrário">
+        
+        <h1>Rafael Ferraz</h1>
       </a>
 
       <nav id="navbar" class="navbar">
@@ -291,7 +292,22 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
+  <script>
+    let newWorker;
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js').then(reg => {
+        reg.addEventListener('updatefound', () => {
+          newWorker = reg.installing;
+        });
+      });
+      let refreshing;
+      navigator.serviceWorker.addEventListener('controllerchange', function () {
+        if (refreshing) return;
+        window.location.reload();
+        refreshing = true;
+      });
+    }
+  </script>
 </body>
 
 </html>
