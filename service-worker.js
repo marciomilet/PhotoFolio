@@ -32,7 +32,7 @@ self.addEventListener('install', event => {
         './assets/icons/256.png',
         './assets/icons/512.png',
 
-        
+        './assets/'
        
         
       ]))
